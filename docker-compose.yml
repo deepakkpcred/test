@@ -6,13 +6,19 @@ services:
     ports: 
       -8080:80
     volumes:
-      -v /path/on/host/modules:/var/www/html/modules
-	    -v /path/on/host/profiles:/var/www/html/profiles
-	    -v /path/on/host/sites:/var/www/html/sites
-	    -v /path/on/host/themes:/var/www/html/themes
+      -v drupal-modules:/var/www/html/modules
+	    -v drupal-profiles:/var/www/html/profiles
+	    -v drupal-sites:/var/www/html/sites
+	    -v drupal-themes:/var/www/html/themes
+
   postgres:
     image: postgres
     envuironment:
       -POSTGRES_PASSWORD=mypasswd
 
+    volumes:
+      drupal-modules:
+      drupal-profiles:
+      drupal-sites:
+      drupal-themes:
 
